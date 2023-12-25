@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="0" failures="0" name="cn.crowdos.kernel.constraint.DateIntervalTest" time="0" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="2023.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\bin"/>
+    <property name="java.vm.version" value="25.372-b07"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\4_project\CrowdOS"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\4_project\CrowdOS"/>
+    <property name="java.runtime.version" value="1.8.0_372-b07"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\loyx\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\\bin;C:\Python311\Scripts\;C:\Python311\;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files (x86)\sbt\bin;C:\texlive\2022\bin\win32;C:\Program Files\CMake\bin;C:\mingw64\bin;C:\Program Files\PowerShell\7\;C:\apache-maven-3.9.1-bin\apache-maven-3.9.1\bin;;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\loyx\AppData\Local\Microsoft\WindowsApps;C:\Users\loyx\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\loyx\AppData\Local\Programs\Microsoft VS Code\bin;C:\ghcup\bin;C:\Users\loyx\AppData\Local\Programs\oh-my-posh\bin;C:\tools\neovim\nvim-win64\bin;C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin;C:\Users\loyx\AppData\Local\Coursier\data\bin;C:\Users\loyx\AppData\Local\Pandoc\;."/>
+    <property name="jansi.passthrough" value="true"/>
+    <property name="maven.conf" value="D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven3/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\loyx"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="user.name" value="loyx"/>
+    <property name="java.class.path" value="D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven3\boot\plexus-classworlds.license;D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2023.1 -B package --file pom.xml"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_372"/>
+    <property name="java.ext.dirs" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\resources.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\rt.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\sunrsasign.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\jsse.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\jce.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\charsets.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\lib\jfr.jar;C:\Users\loyx\.jdks\corretto-1.8.0_372\jre\classes"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.specification.maintenance.version" value="4"/>
+    <property name="maven.home" value="D:\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+</testsuite>
