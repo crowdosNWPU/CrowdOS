@@ -1,0 +1,10 @@
+cn.crowdos.kernel
+cn.crowdos.kernel.Incentive
+cn.crowdos.kernel.algorithms
+cn.crowdos.kernel.algorithms.GGA_I
+cn.crowdos.kernel.constraint
+cn.crowdos.kernel.constraint.PrivacyConstraint
+cn.crowdos.kernel.resource
+cn.crowdos.kernel.system
+cn.crowdos.kernel.system.resource
+cn.crowdos.kernel.wrapper
