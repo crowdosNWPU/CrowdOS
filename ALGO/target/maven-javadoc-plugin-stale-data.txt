@@ -1,0 +1,41 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'8'
+-sourcepath
+'D:/4_project/CrowdOS/ALGO/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/4_project/CrowdOS/ALGO/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'crowdos-aaas 1.0.3 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'D:/4_project/CrowdOS/ALGO/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'crowdos-aaas 1.0.3 API'
+cn.crowdos.aaas
+'D:/4_project/CrowdOS/ALGO/src/main/java/cn/crowdos/aaas/ALGO.java'
+D:\4_project\CrowdOS\ALGO\src\main\java = 1667896212277
+D:\4_project\CrowdOS\ALGO\target\apidocs\allclasses-frame.html = 1681957287027
+D:\4_project\CrowdOS\ALGO\target\apidocs\allclasses-noframe.html = 1681957287028
+D:\4_project\CrowdOS\ALGO\target\apidocs\constant-values.html = 1681957287015
+D:\4_project\CrowdOS\ALGO\target\apidocs\deprecated-list.html = 1681957287026
+D:\4_project\CrowdOS\ALGO\target\apidocs\help-doc.html = 1681957287030
+D:\4_project\CrowdOS\ALGO\target\apidocs\index-all.html = 1681957287025
+D:\4_project\CrowdOS\ALGO\target\apidocs\index.html = 1681957287028
+D:\4_project\CrowdOS\ALGO\target\apidocs\overview-tree.html = 1681957287023
+D:\4_project\CrowdOS\ALGO\target\apidocs\package-list = 1681957287005
+D:\4_project\CrowdOS\ALGO\target\apidocs\script.js = 1681957287030
+D:\4_project\CrowdOS\ALGO\target\apidocs\stylesheet.css = 1681956069253
