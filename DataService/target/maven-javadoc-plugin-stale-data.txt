@@ -1,0 +1,41 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'8'
+-sourcepath
+'D:/4_project/CrowdOS/DataService/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/4_project/CrowdOS/DataService/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'crowdos-dataservice 1.0.3 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'D:/4_project/CrowdOS/DataService/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'crowdos-dataservice 1.0.3 API'
+cn.crowdos.dataservice
+'D:/4_project/CrowdOS/DataService/src/main/java/cn/crowdos/dataservice/DService.java'
+D:\4_project\CrowdOS\DataService\src\main\java = 1667896212277
+D:\4_project\CrowdOS\DataService\target\apidocs\allclasses-frame.html = 1681957299295
+D:\4_project\CrowdOS\DataService\target\apidocs\allclasses-noframe.html = 1681957299295
+D:\4_project\CrowdOS\DataService\target\apidocs\constant-values.html = 1681957299284
+D:\4_project\CrowdOS\DataService\target\apidocs\deprecated-list.html = 1681957299294
+D:\4_project\CrowdOS\DataService\target\apidocs\help-doc.html = 1681957299297
+D:\4_project\CrowdOS\DataService\target\apidocs\index-all.html = 1681957299292
+D:\4_project\CrowdOS\DataService\target\apidocs\index.html = 1681957299296
+D:\4_project\CrowdOS\DataService\target\apidocs\overview-tree.html = 1681957299291
+D:\4_project\CrowdOS\DataService\target\apidocs\package-list = 1681957299275
+D:\4_project\CrowdOS\DataService\target\apidocs\script.js = 1681957299298
+D:\4_project\CrowdOS\DataService\target\apidocs\stylesheet.css = 1681956079901
