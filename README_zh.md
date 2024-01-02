@@ -1,4 +1,4 @@
- [![license](https://img.shields.io/github/license/loyx/CrowdOS)](https://www.apache.org/licenses/LICENSE-2.0) [![build](https://img.shields.io/github/actions/workflow/status/loyx/CrowdOS/maven.yml)]()  [![issues](https://img.shields.io/github/issues/loyx/CrowdOS)]()
+ [![license](https://img.shields.io/github/license/crowdosNWPU/CrowdOS)](https://www.apache.org/licenses/LICENSE-2.0) [![build](https://img.shields.io/github/actions/workflow/status/crowdosNWPU/CrowdOS/maven.yml)]()  [![issues](https://img.shields.io/github/issues/crowdosNWPU/CrowdOS)]()
  
 
 
