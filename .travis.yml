@@ -4,9 +4,9 @@ jdk:
   - openjdk8
 
 script:
-  - mvn -version
-  - mvn  test
-  - mvn  clean package -P full
+  - ./mvnw -version
+  - ./mvnw test
+  - ./mvnw clean package -P full
 
 branches:
   only:
