@@ -105,7 +105,7 @@ CrowdOS使用GitHub的集成问题跟踪系统来记录bug和功能请求。
 **注意：CrowdOS仍处于开发阶段，目前只有内核部分已经完成。
 ### Kernel
 CrowdOS目标在于提升群智应用的构建效率，降低群智应用的使用门槛。目前CrowdOS使用CrowdOS Kernel和SpringBoot等Web框架快速开发基于群智感知功能的群智APP。一个使用CrowdOS Kernel开发的群智APP的框架图如下：
-![Alt text](img1-1.png)
+![Alt text]([img1-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img1-1.png))
 #### Kernel.constriaint与Kernel.resource
 ##### 1、设计逻辑
 群智感知应用中关键的两个因素是任务与完成任务的参与者。在CrowdOS Kernel中任务被定义为包含一组**约束**（constraint包）条件的开发者自定义**任务**（resource包），参与者为包含一组能力的开发者自定义**参与者**（resource包）。
