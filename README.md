@@ -111,12 +111,12 @@ operating system, and JVM version you’re using.
 ## Modules
 **Note: CrowdOS is still in the development stage, only the kernel part is completed at present.**
 ### FrameWork of the system
-![FrameWork](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/FrameWork.png)
+![FrameWork](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/FrameWork.png)  
 ### Kernel
 The goal of CrowdOS is to improve the construction efficiency of MCS applications and reduce the usage rights of MCS applications. 
 Currently, CrowdOS uses Web frameworks such as CrowdOS Kernel and SpringBoot to quickly develop crowd intelligence APPs based on crowd intelligence collection functions. 
-The framework diagram of a crowd intelligence APP developed using CrowdOS Kernel is as follows:
-![img1-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img1-1.png)
+The framework diagram of a crowd intelligence APP developed using CrowdOS Kernel is as follows:  
+![img1-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img1-1.png)  
 #### Kernel.constriaint and Kernel.resource
 ##### 1、Design Logic
 The two key factors in crowd sensing applications are the task and the participants who complete the task.  
@@ -137,24 +137,22 @@ it is necessary to insist whether the participants provide their own GPS informa
 For example, check whether the participant's GPS location information is within the range required by the task.  
 
 
-The design logic diagram is as follows:
-![img2-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img2-1.png)
+The design logic diagram is as follows:  
+![img2-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img2-1.png)  
 ##### 2、Design Patterns
 The classes in the constraint package and the resource package implement a Double Dispatch mode (another commonly used implementation of double dispatch is the Visitor mode).At the same time, some reflection techniques are used to optimize the code implementation. 
-The specific class diagram is as follows:
-![img3-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img3-1.png)
+The specific class diagram is as follows:  
+![img3-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img3-1.png)  
 ##### 3、Other Content
 The constraint package contains the Constraint interface of the build task and the Condition interface of the build participant, and provides some simple implementations. 
-In addition, in the constraint.wrapper package, a Condition version of the underlying type is provided (same logic as the JAVA wrapper class).
-
-![img5-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img5-1.png)
+In addition, in the constraint.wrapper package, a Condition version of the underlying type is provided (same logic as the JAVA wrapper class).  
+![img5-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img5-1.png)  
 In addition to the key Task and Participant interfaces, the resource package also provides corresponding Abstract Classes, 
 namely AbstractTask and AbstractParticipant. When programmers develop custom tasks and participants, 
 they only need to inherit the corresponding abstract base class instead of starting from implementing the basic interface 
 (same design idea as the design idea of the JAVA Container part). 
-Some example entity classes are also provided.
-
-![img4-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img4-1.png)
+Some example entity classes are also provided.  
+![img4-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img4-1.png)  
 #### Kernel.system
 ##### 1、Design Logic
 SystemResourceCollection in the system package manages all entities in the system. 
@@ -170,8 +168,8 @@ when using getResource(), the system package does not provide this guarantee.
 - For example, in the algorithms package, the implementation of the algorithm requires access to various information of system entities, so all operations in this package can only use getResourceView().
 
 ##### 2、Design Patterns
-The system package implements a guarantee similar to the iteration pattern. The specific UML class diagram is as follows:
-![img6-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img6-1.png)
+The system package implements a guarantee similar to the iteration pattern. The specific UML class diagram is as follows:  
+![img6-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img6-1.png)  
 #### Kernel.algorithms
 ##### 1、Design Logic
 The algorithms package defines crowdsensing-related algorithms used in the system, and currently provides task allocation, 
@@ -184,20 +182,20 @@ There are two main design patterns involved in the algorithms package, namely:
 Currently, each algorithm factory needs to implement task allocation, task recommendation and participant selection algorithms separately;
 - When algorithms interact with the Scheduler, the algorithms are embedded in the Scheduler in the form of template patterns.
 
-The UML class diagram of the algorithms package is as follows:
-![img7-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img7-1.png)
+The UML class diagram of the algorithms package is as follows:  
+![img7-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img7-1.png)  
 ##### 3、Algorithm Description
 The lgorithms package provides four classic task allocation algorithms, namely T_Most, PT_Most, T_Random, and GGA_I.
 The algorithm factories corresponding to the four algorithms all inherit from the algorithm adapter AlgoFactoryAdapter. Each algorithm can support single task allocation and multi-task allocation.  
-The interface AlgoFactory defines the interfaces of all algorithms used in the kernel. Currently, three functions are defined:
-![img8-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img8-1.png)
+The interface AlgoFactory defines the interfaces of all algorithms used in the kernel. Currently, three functions are defined:  
+![img8-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img8-1.png)  
 The algorithm adapter AlgoFactoryAdapter implements the interface AlgoFactory and provides the system with default task allocation, 
 task recommendation and participant selection algorithms. 
 If no algorithm selection is performed, the system provides the default algorithm implementation. Access to specific algorithms can be achieved by inheriting the algorithm adapter AlgoFactoryAdapter.
 #### CrowdKernel system interface and Implementation
 ##### 1、CrowdKernel Interface
-The interface CrowdKernel defines the interface for programmers to interact with kernel functions. Currently CrowdKernel defines the following functions:
-![img9-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img9-1.png)
+The interface CrowdKernel defines the interface for programmers to interact with kernel functions. Currently CrowdKernel defines the following functions:  
+![img9-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img9-1.png)  
 ### ALGO
 crowdos-aaas(CrowdOS Algorithms as a Service).
 Coming soon.
