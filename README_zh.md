@@ -121,7 +121,7 @@ constraint包与resource包中的类实现了一种Double Dispatch模式（双�
 ![img3-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img3-1.png)
 ##### 3、其他内容
 constraint包中包含了构建任务的Constraint接口和构建参与者的Condition接口，并且提供了一部分实现简单实现。此外，在constraint.wrapper包中，提供了基础类型的Condition版本（此处的逻辑与JAVA包装类相同）。  
-![img5-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img5-1.png)
+![img5-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img5-1.png)  
 resource包中除过关键的Task和Participant接口外，还提供了对应的Abstract Class分别为AbstractTask和AbstractParticipant。当程序员开发自定义任务和参与者时，只要继承对应的抽象基类，而不必从实现基础接口开始（此处的设计逻辑与JAVA Container部分设计思路相同）。此外还提供了一些示例性的实体类。  
 ![img4-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img4-1.png)
 #### Kernel.system
