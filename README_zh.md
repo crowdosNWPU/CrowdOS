@@ -115,15 +115,15 @@ CrowdOS目标在于提升群智应用的构建效率，降低群智应用的使�
 1.检查对于任务要求的某约束类型，该参与者是否具体满足该类型约束的能力。例如，任务要求在某一区域执行任务，此时需要坚持参与者是否提供了自己的GPS信息。
 2.检查参与者所具有的某个能力，是否是能满足该约束的条件。例如，检查参与者的GPS位置信息是否在任务要求的范围内。
 设计逻辑图如下所示:
-![Alt text](img2-1.png)
+![img2-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img2-1.png)
 ##### 2、设计模式
 constraint包与resource包中的类实现了一种Double Dispatch模式（双分派的另一个常用的实现是Visitor模式）。同时使用了一些反射技术优化了代码实现。具体类图如下：
-![Alt text](img3-1.png)
+![img3-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img3-1.png)
 ##### 3、其他内容
 constraint包中包含了构建任务的Constraint接口和构建参与者的Condition接口，并且提供了一部分实现简单实现。此外，在constraint.wrapper包中，提供了基础类型的Condition版本（此处的逻辑与JAVA包装类相同）。
-![Alt text](img5-1.png)
+![img5-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img5-1.png)
 resource包中除过关键的Task和Participant接口外，还提供了对应的Abstract Class分别为AbstractTask和AbstractParticipant。当程序员开发自定义任务和参与者时，只要继承对应的抽象基类，而不必从实现基础接口开始（此处的设计逻辑与JAVA Container部分设计思路相同）。此外还提供了一些示例性的实体类。
-![Alt text](img4-1.png)
+![img4-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img4-1.png)
 #### Kernel.system
 ##### 1、设计逻辑
 system包中的SystemResourceCollection管理了系统中的所有实体。目前，系统实体包括TaskPool、ParticipantPool、AlgoContainer和Schedule。系统实体需要继承Resource接口，实现getHandler()方法。出于对系统实体的保护，所有访问系统实体的操作都应该通过getHandler()方法，该方法返回某一个具体实体的处理句柄。其他包在访问系统实体时，必须通过实体句柄。系统实体句柄SystemResourceHandler<T>提供了两类访问方式：
@@ -133,7 +133,7 @@ system包对其他包（或代码）做出了一个约定：当其他包（或�
 基于system包提供的保证，其他包可以放心的通过系统实体句柄实现自己的功能。例如，在algorithms包中，算法的实现需要访问系统实体的各项信息，因此该包中所有操作仅可使用getResourceView()。
 ##### 2、设计模式
 system包实现了一种类似于迭代模式的保证。具体的UML类图如下：
-![Alt text](image6-1.png)
+![img6-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img6-1.png)
 #### Kernel.algorithms
 ##### 1、设计逻辑
 algorithms包定义了系统中所使用的群智感知相关算法，目前提供了任务分配、任务推荐和参与者选择算法接口。algorithms包实现了算法与系统流程的解耦。在实现algorithms包中算法的过程中，基于system包提供的保证，可以解耦算法流程与系统流程，确保系统流程的稳定运行。
@@ -142,16 +142,16 @@ algorithms包涉及的设计模式主要有两种，分别为：
 1.algorithms自身使用了工程模式。每一类算法工厂产出一类特定的算法实现。目前每个算法工厂需要分别实现任务分配、任务推荐和参与者选择算法；
 2.algorithms与Scheduler交互时，algorithms以模板模式的形式嵌入Scheduler。
 algorithms包的UML类图如下：
-![Alt text](image7-1.png)
+![img7-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img7-1.png)
 ##### 3、算法说明
 algorithms包中提供了四种经典的任务分配算法，分别为T_Most、PT_Most、T_Random、GGA_I。四种算法对应的算法工厂均继承自算法适配器AlgoFactoryAdapter，每种算法都可支持但任务分配和多任务分配。
 接口AlgoFactory定义了内核中使用的所有算法的接口，目前定义了三个功能：
-![Alt text](image.png)
+![img8-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img8-1.png)
 算法适配器AlgoFactoryAdapter实现接口AlgoFactory，为系统提供了默认任务分配、任务推荐和参与者选择算法，若不进行算法选择，则系统提供其中的默认算法实现，具体算法的接入可通过继承算法适配器AlgoFactoryAdapter实现。
 #### CrowdKernel系统接口与实现
 ##### 1、1.CrowdKernel接口
 接口CrowdKernel定义了程序员与内核功能交互的接口。目前CrowdKernel定义了如下功能：
-![Alt text](image-1.png)
+![img9-1.png](https://github.com/crowdosNWPU/CrowdOS/blob/main/src/site/resources/images/img9-1.png)
 ### ALGO
 crowdos-aaas(CrowdOS Algorithms as a Service)。即将推出。
 ### DataService
