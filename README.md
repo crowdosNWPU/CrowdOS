@@ -146,12 +146,14 @@ The specific class diagram is as follows:
 ##### 3、Other Content
 The constraint package contains the Constraint interface of the build task and the Condition interface of the build participant, and provides some simple implementations. 
 In addition, in the constraint.wrapper package, a Condition version of the underlying type is provided (same logic as the JAVA wrapper class).
+
 ![img5-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img5-1.png)
 In addition to the key Task and Participant interfaces, the resource package also provides corresponding Abstract Classes, 
 namely AbstractTask and AbstractParticipant. When programmers develop custom tasks and participants, 
 they only need to inherit the corresponding abstract base class instead of starting from implementing the basic interface 
 (same design idea as the design idea of the JAVA Container part). 
 Some example entity classes are also provided.
+
 ![img4-1.png](https://raw.githubusercontent.com/crowdosNWPU/CrowdOS/main/src/site/resources/images/img4-1.png)
 #### Kernel.system
 ##### 1、Design Logic
