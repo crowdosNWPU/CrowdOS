@@ -1,5 +1,8 @@
- [![license](https://img.shields.io/github/license/crowdosNWPU/CrowdOS)](https://www.apache.org/licenses/LICENSE-2.0) [![build](https://img.shields.io/github/actions/workflow/status/crowdosNWPU/CrowdOS/maven.yml)]()  [![issues](https://img.shields.io/github/issues/crowdosNWPU/CrowdOS)]()
- [![fork](https://img.shields.io/github/forks/crowdosNWPU/CrowdOS?style=social)]() [![stars](https://img.shields.io/github/stars/crowdosNWPU/CrowdOS?style=social)]()
+ [![license](https://img.shields.io/github/license/crowdosNWPU/CrowdOS)](https://www.apache.org/licenses/LICENSE-2.0) 
+ [![build](https://img.shields.io/github/actions/workflow/status/crowdosNWPU/CrowdOS/maven.yml)]()  
+ [![issues](https://img.shields.io/github/issues/crowdosNWPU/CrowdOS)]()
+ [![fork](https://img.shields.io/github/forks/crowdosNWPU/CrowdOS?style=social)]() 
+ [![stars](https://img.shields.io/github/stars/crowdosNWPU/CrowdOS?style=social)]()
  
  
  ![Logo](https://raw.githubusercontent.com/li-haoyang1/CrowdOS/master/src/site/resources/images/logo.jpg)
