@@ -23,9 +23,8 @@ public class DecomposeSpatioLine {
     public DecomposeSpatioLine(double width,List<Coordinate> pointsList) throws InvalidConstraintException {
         this.pointsList = pointsList;
         this.width = width;
-         if(pointsList==null)
+        if(pointsList==null)
             throw new InvalidConstraintException("Invalid pointsList");
-         
     }
 
     /**
@@ -37,7 +36,7 @@ public class DecomposeSpatioLine {
      */
     public DecomposeSpatioLine(double width,Coordinate...pointsList) throws InvalidConstraintException {
         this(width,Arrays.asList(pointsList));
-        if(pointsList==null)
+        if(pointsList.size()==0)
             throw new InvalidConstraintException("Invalid pointsList");
     }
 
@@ -48,7 +47,7 @@ public class DecomposeSpatioLine {
      * @throws InvalidConstraintException if an invalid constraint is detected
      */
     public List<SpatioLine> DecomposePointslistToLines() throws InvalidConstraintException {
-        if(pointsList==null)
+        if(pointsList.isEmpty())
             throw new InvalidConstraintException("Invalid pointsList");
         List<SpatioLine> decomposeLines = new ArrayList<>(pointsList.size()-1);
         for(int i=0;i<pointsList.size()-1;i++){
