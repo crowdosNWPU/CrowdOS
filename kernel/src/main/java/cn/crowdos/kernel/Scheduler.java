@@ -125,9 +125,6 @@ public class Scheduler implements Resource<Scheduler> {
      *
      * @return The algoFactory object.
      */
-    public AlgoFactory getAlgoFactory() {
-        return algoFactory;
-    }
 
     @Override
     // A method that returns a SystemResourceHandler object.

@@ -1,5 +1,6 @@
 package cn.crowdos.kernel.algorithms;
 
+import cn.crowdos.kernel.InterruptManager;
 import cn.crowdos.kernel.resource.Participant;
 import cn.crowdos.kernel.system.SystemResourceCollection;
 import cn.crowdos.kernel.system.resource.ParticipantPool;
@@ -11,6 +12,9 @@ import java.util.List;
 public class AlgoFactoryAdapter implements AlgoFactory{
 
     protected final SystemResourceCollection resourceCollection;
+
+    //中断器管理实例
+    private InterruptManager interruptManager;
 
     public AlgoFactoryAdapter(SystemResourceCollection resourceCollection){
         this.resourceCollection = resourceCollection;

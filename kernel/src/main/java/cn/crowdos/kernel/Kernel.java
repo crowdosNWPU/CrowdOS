@@ -18,6 +18,8 @@ public class Kernel implements CrowdKernel {
 
     private boolean initialed = false;
     private static CrowdKernel kernel;
+    private InterruptManager interruptManager = new InterruptManager();
+
 
     private SystemResourceCollection systemResourceCollection;
 
@@ -234,5 +236,15 @@ public class Kernel implements CrowdKernel {
     public List<Participant> getParticipants(){
         ParticipantPool resource = systemResourceCollection.getResourceHandler(ParticipantPool.class).getResource();
         return new ArrayList<>(resource);
+    }
+
+    @Override
+    /**
+     *Gets the interrupt manager instance
+     *
+     * @return Interrupt manager instance
+     */
+    public InterruptManager getInterruptManager(){
+        return interruptManager;
     }
 }

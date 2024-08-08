@@ -99,4 +99,5 @@ public interface CrowdKernel {
      */
     List<Participant> getParticipants();
 
+    InterruptManager getInterruptManager();
 }

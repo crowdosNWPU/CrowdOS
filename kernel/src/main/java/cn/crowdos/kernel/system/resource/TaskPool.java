@@ -1,5 +1,6 @@
 package cn.crowdos.kernel.system.resource;
 
+import cn.crowdos.kernel.InterruptManager;
 import cn.crowdos.kernel.system.SystemResourceHandler;
 import cn.crowdos.kernel.resource.Task;
 
@@ -9,6 +10,8 @@ public class TaskPool extends LinkedList<Task> implements Resource<TaskPool> {
     @Override
     public SystemResourceHandler<TaskPool> getHandler() {
         TaskPool tasks = this;
+        //中断管理器实例
+        InterruptManager interruptManager;
 
         return new SystemResourceHandler<TaskPool>() {
 

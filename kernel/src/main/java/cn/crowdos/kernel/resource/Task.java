@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface Task extends Decomposable<Task> {
 
+
+
     // Defining a new type called `TaskDistributionType` with two possible values: `ASSIGNMENT` and `RECOMMENDATION`.
     enum TaskDistributionType{
         ASSIGNMENT,
@@ -19,6 +21,11 @@ public interface Task extends Decomposable<Task> {
         IN_PROGRESS,
         FINISHED,
     }
+
+    /**
+     * The logic to perform the task
+     */
+    void execute();
 
     /**
      * Returns the type of task distribution used in the simulation
@@ -69,4 +76,16 @@ public interface Task extends Decomposable<Task> {
      */
     boolean finished();
 
+    /**
+     *Interrupt handling logic
+     *
+     */
+    void handleInterrupt();
+
+    /**
+     * Check if the task is complete
+     *
+     * @return A boolean value.
+     */
+    boolean isCompleted();
 }
