@@ -13,7 +13,7 @@
     <groupId>cn.crowdos</groupId>
     <artifactId>CrowdOS</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <modules>
         <module>kernel</module>
         <module>DataService</module>

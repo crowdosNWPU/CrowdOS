@@ -4,6 +4,8 @@ import cn.crowdos.kernel.Incentive.CredibilityBasedIncentive;
 import cn.crowdos.kernel.Incentive.CredibilityBasedIncentiveImpl;
 import cn.crowdos.kernel.algorithms.*;
 import cn.crowdos.kernel.resource.Participant;
+import cn.crowdos.kernel.sensor.SensorData;
+import cn.crowdos.kernel.sensor.SensorManager;
 import cn.crowdos.kernel.system.DuplicateResourceNameException;
 import cn.crowdos.kernel.system.SystemResourceCollection;
 import cn.crowdos.kernel.system.resource.*;
@@ -19,6 +21,7 @@ public class Kernel implements CrowdKernel {
     private boolean initialed = false;
     private static CrowdKernel kernel;
     private InterruptManager interruptManager = new InterruptManager();
+    private SensorManager sensorManager;
 
 
     private SystemResourceCollection systemResourceCollection;
@@ -247,4 +250,37 @@ public class Kernel implements CrowdKernel {
     public InterruptManager getInterruptManager(){
         return interruptManager;
     }
+
+    /**
+     * 启动指定参与者设备上的传感器
+     * @param deviceId 参与者的设备ID
+     * @param sensorType 需要启动的传感器类型
+     */
+    public void startSensor(String deviceId, String sensorType) {
+        // 调用SensorManager中的方法，启动传感器
+        sensorManager.startSensorTask(deviceId, sensorType);
+    }
+
+    /**
+     * 停止指定参与者设备上的传感器
+     * @param deviceId 参与者的设备ID
+     * @param sensorType 需要停止的传感器类型
+     */
+    public void stopSensor(String deviceId, String sensorType) {
+        // 调用SensorManager中的方法，停止传感器
+        sensorManager.stopSensorTask(deviceId, sensorType);
+    }
+
+    /**
+     * 获取传感器数据
+     * @param deviceId 参与者的设备ID
+     * @return 返回该设备上采集到的传感器数据
+     */
+    public List<SensorData> getSensorData(String deviceId) {
+        // 通过SensorManager获取数据
+        return sensorManager.getSensorData(deviceId);
+    }
+
+
+
 }
