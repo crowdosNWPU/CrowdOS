@@ -1,0 +1,9 @@
+dependencies:
+  - name: maven
+    path: pom.xml
+    package_manager: maven
+    command: mvn dependency:list
+    format: maven
+    include_groups:
+      - compile
+      - runtime
