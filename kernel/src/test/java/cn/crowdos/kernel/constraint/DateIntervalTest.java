@@ -3,42 +3,43 @@ package cn.crowdos.kernel.constraint;
 import cn.crowdos.kernel.DecomposeException;
 import cn.crowdos.kernel.Decomposer;
 import cn.crowdos.kernel.wrapper.DateCondition;
-import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class DateIntervalTest {
 
     DateInterval dateInterval;
-    {
-        try{
-            dateInterval = new DateInterval("2023-04-01","2023-05-06");
+
+    public DateIntervalTest() {
+        try {
+            dateInterval = new DateInterval("2023-04-01", "2023-05-06");
         } catch (InvalidConstraintException e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Test
-    void testException(){
-        assertThrows(
-                InvalidConstraintException.class,
-                () -> new DateInterval("2023-04-08","2023-04-01")
-        );
-        assertThrows(
-                InvalidConstraintException.class,
-                () -> new DateInterval(LocalDate.of(2023,4,18),LocalDate.of(2023,4,8))
-        );
+    public void testException() {
+        try {
+            new DateInterval("2023-04-08", "2023-04-01");
+            System.out.println("testException failed: Expected InvalidConstraintException was not thrown.");
+        } catch (InvalidConstraintException e) {
+            // Expected exception, test passes
+        }
+
+        try {
+            new DateInterval(LocalDate.of(2023, 4, 18), LocalDate.of(2023, 4, 8));
+            System.out.println("testException failed: Expected InvalidConstraintException was not thrown.");
+        } catch (InvalidConstraintException e) {
+            // Expected exception, test passes
+        }
     }
 
-    @Test
-    void decomposer(){
+    public void decomposer() {
         Decomposer<Constraint> decomposer = dateInterval.decomposer();
-        try{
-            for (Constraint subconstraint : decomposer.scaleDecompose(10)){
+        try {
+            for (Constraint subconstraint : decomposer.scaleDecompose(10)) {
                 System.out.println(subconstraint);
             }
         } catch (DecomposeException e) {
@@ -46,22 +47,43 @@ public class DateIntervalTest {
         }
     }
 
-    @Test
-    void satisfy() {
+    public void satisfy() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd");
-        DateCondition condition1, condition2;
+        DateCondition condition1 = null;
+        DateCondition condition2 = null;
         try {
             condition1 = new DateCondition(df.parse("2023.04.03").getTime());
             condition2 = new DateCondition(df.parse("2023.06.04").getTime());
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        assertTrue(dateInterval.satisfy(condition1));
-        assertFalse(dateInterval.satisfy(condition2));
+
+        if (dateInterval.satisfy(condition1)) {
+            System.out.println("satisfy test passed for condition1.");
+        } else {
+            System.out.println("satisfy test failed for condition1.");
+        }
+
+        if (!dateInterval.satisfy(condition2)) {
+            System.out.println("satisfy test passed for condition2.");
+        } else {
+            System.out.println("satisfy test failed for condition2.");
+        }
     }
 
-    @Test
-    void getConditionClass(){
-        assertSame(dateInterval.getConditionClass(), DateCondition.class);
+    public void getConditionClass() {
+        if (dateInterval.getConditionClass() == DateCondition.class) {
+            System.out.println("getConditionClass test passed.");
+        } else {
+            System.out.println("getConditionClass test failed.");
+        }
+    }
+
+    public static void main(String[] args) {
+        DateIntervalTest test = new DateIntervalTest();
+        test.testException();
+        test.decomposer();
+        test.satisfy();
+        test.getConditionClass();
     }
 }

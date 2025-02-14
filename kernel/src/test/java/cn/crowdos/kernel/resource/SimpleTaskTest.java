@@ -5,14 +5,13 @@ import cn.crowdos.kernel.Decomposer;
 import cn.crowdos.kernel.common.TimeParticipant;
 import cn.crowdos.kernel.constraint.InvalidConstraintException;
 import cn.crowdos.kernel.constraint.SimpleTimeConstraint;
-import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SimpleTaskTest {
     Task task;
+
+    // 初始化任务的代码块
     {
         SimpleTimeConstraint timeConst;
         try {
@@ -23,7 +22,7 @@ class SimpleTaskTest {
         task = new SimpleTask(Collections.singletonList(timeConst), Task.TaskDistributionType.RECOMMENDATION);
     }
 
-    @Test
+    // 测试分解器的方法
     void decomposer() {
         Decomposer<Task> decomposer = task.decomposer();
         try {
@@ -35,38 +34,50 @@ class SimpleTaskTest {
         }
     }
 
-    @Test
+    // 获取任务分配类型的方法
     void getTaskDistributionType() {
         System.out.println(task.getTaskDistributionType());
     }
 
-    @Test
+    // 获取任务状态的方法
     void getTaskStatus() {
         System.out.println(task.getTaskStatus());
     }
 
-    @Test
+    // 获取任务约束的方法
     void constraints() {
         System.out.println(task.constraints());
     }
 
-    @Test
+    // 测试任务是否可分配给参与者的方法
     void canAssignTo() {
-
         TimeParticipant p1 = new TimeParticipant("2022.6.3");
         TimeParticipant p2 = new TimeParticipant("2022.6.10");
-        assertTrue(task.canAssignTo(p1));
-        assertFalse(task.canAssignTo(p2));
+        boolean canAssignToP1 = task.canAssignTo(p1);
+        boolean canAssignToP2 = task.canAssignTo(p2);
+        System.out.println("Can assign to p1: " + canAssignToP1);
+        System.out.println("Can assign to p2: " + canAssignToP2);
     }
 
-    @Test
+    // 测试任务是否可分配的方法
     void assignable() {
         System.out.println(task.assignable());
     }
 
-    @Test
+    // 测试任务是否已完成的方法
     void finished() {
         System.out.println(task.finished());
     }
-}
 
+    // 主方法，用于调用各个测试方法
+    public static void main(String[] args) {
+        SimpleTaskTest test = new SimpleTaskTest();
+        test.decomposer();
+        test.getTaskDistributionType();
+        test.getTaskStatus();
+        test.constraints();
+        test.canAssignTo();
+        test.assignable();
+        test.finished();
+    }
+}

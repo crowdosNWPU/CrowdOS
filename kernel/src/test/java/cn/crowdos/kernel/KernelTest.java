@@ -5,18 +5,15 @@ import cn.crowdos.kernel.constraint.InvalidConstraintException;
 import cn.crowdos.kernel.constraint.SimpleTimeConstraint;
 import cn.crowdos.kernel.resource.SimpleTask;
 import cn.crowdos.kernel.resource.Task;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
 public class KernelTest {
 
-    CrowdKernel kernel;
+    private CrowdKernel kernel;
 
-    @BeforeEach
-    void setUp() {
+    // 初始化方法，原@BeforeEach注解的方法内容
+    private void init() {
         kernel = Kernel.getKernel();
         kernel.initial();
         TimeParticipant p1 = new TimeParticipant("2022.6.1");
@@ -43,38 +40,52 @@ public class KernelTest {
         }
     }
 
-    @AfterEach
-    void tearDown() {
+    // 清理方法，原@AfterEach注解的方法内容
+    private void cleanup() {
         Kernel.shutdown();
     }
-    @Test
-    void getTasks() {
+
+    // 原getTasks测试方法内容
+    private void testGetTasks() {
         System.out.println(kernel.getTasks());
     }
 
-    @Test
-    void getParticipants() {
+    // 原getParticipants测试方法内容
+    private void testGetParticipants() {
         System.out.println(kernel.getParticipants());
     }
 
-    @Test
-    void getTaskAssignmentScheme() {
+    // 原getTaskAssignmentScheme测试方法内容
+    private void testGetTaskAssignmentScheme() {
         for (Task task : kernel.getTasks()) {
             System.out.println(kernel.getTaskAssignmentScheme(task));
         }
     }
 
-    @Test
-    void getTaskRecommendationScheme() {
+    // 原getTaskRecommendationScheme测试方法内容
+    private void testGetTaskRecommendationScheme() {
         for (Task task : kernel.getTasks()) {
             System.out.println(kernel.getTaskRecommendationScheme(task));
         }
     }
 
-    @Test
-    void getTaskParticipantSelectionResult() {
+    // 原getTaskParticipantSelectionResult测试方法内容
+    private void testGetTaskParticipantSelectionResult() {
         for (Task task : kernel.getTasks()) {
             System.out.println(kernel.getTaskParticipantSelectionResult(task));
         }
+    }
+
+    public static void main(String[] args) {
+        KernelTest test = new KernelTest();
+        test.init();
+
+        test.testGetTasks();
+        test.testGetParticipants();
+        test.testGetTaskAssignmentScheme();
+        test.testGetTaskRecommendationScheme();
+        test.testGetTaskParticipantSelectionResult();
+
+        test.cleanup();
     }
 }

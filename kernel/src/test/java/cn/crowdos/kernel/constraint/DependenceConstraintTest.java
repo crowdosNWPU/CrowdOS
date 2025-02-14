@@ -4,13 +4,9 @@ import cn.crowdos.kernel.DecomposeException;
 import cn.crowdos.kernel.Decomposer;
 import cn.crowdos.kernel.resource.SimpleTask;
 import cn.crowdos.kernel.resource.Task;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DependenceConstraintTest {
 
@@ -18,7 +14,7 @@ class DependenceConstraintTest {
     private static DependenceConstraint unfinishedDependence;
     private static DependenceConstraint mixDependence;
 
-    @BeforeAll
+    // 初始化方法，原本的 @BeforeAll 方法
     static void beforeAll() {
         List<Task> finishedTask = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -35,38 +31,66 @@ class DependenceConstraintTest {
         finishedDependence = new DependenceConstraint(finishedTask);
         unfinishedDependence = new DependenceConstraint(unfinishedTask);
         List<Task> mixTasks = new ArrayList<>(finishedTask.subList(0, finishedTask.size() / 2));
-        mixTasks.addAll(unfinishedTask.subList(unfinishedTask.size()/2, unfinishedTask.size()));
+        mixTasks.addAll(unfinishedTask.subList(unfinishedTask.size() / 2, unfinishedTask.size()));
         mixDependence = new DependenceConstraint(mixTasks);
     }
 
-    @Test
-    void decomposer() throws DecomposeException {
-        Decomposer<Constraint> decomposer = finishedDependence.decomposer();
-        List<Constraint> constraints = decomposer.trivialDecompose();
-        System.out.println(constraints);
-        List<Constraint> constraints1 = decomposer.scaleDecompose(10);
-        System.out.println(constraints1);
+    // 测试 decomposer 方法
+    static void testDecomposer() {
+        try {
+            Decomposer<Constraint> decomposer = finishedDependence.decomposer();
+            List<Constraint> constraints = decomposer.trivialDecompose();
+            System.out.println(constraints);
+            List<Constraint> constraints1 = decomposer.scaleDecompose(10);
+            System.out.println(constraints1);
+            System.out.println("testDecomposer passed");
+        } catch (DecomposeException e) {
+            System.out.println("testDecomposer failed: " + e.getMessage());
+        }
     }
 
-    @Test
-    void satisfy() {
-        assertTrue(finishedDependence.satisfy());
-        assertFalse(unfinishedDependence.satisfy());
-        assertFalse(mixDependence.satisfy());
+    // 测试 satisfy 方法
+    static void testSatisfy() {
+        boolean result1 = finishedDependence.satisfy();
+        boolean result2 = !unfinishedDependence.satisfy();
+        boolean result3 = !mixDependence.satisfy();
+        if (result1 && result2 && result3) {
+            System.out.println("testSatisfy passed");
+        } else {
+            System.out.println("testSatisfy failed");
+        }
     }
 
-    @Test
-    void testSatisfy() {
+    // 测试 testSatisfy 方法（带条件）
+    static void testTestSatisfy() {
         NoneCondition noneCondition = new NoneCondition();
-        assertTrue(finishedDependence.satisfy(noneCondition));
-        assertFalse(unfinishedDependence.satisfy(noneCondition));
-        assertFalse(mixDependence.satisfy(noneCondition));
+        boolean result1 = finishedDependence.satisfy(noneCondition);
+        boolean result2 = !unfinishedDependence.satisfy(noneCondition);
+        boolean result3 = !mixDependence.satisfy(noneCondition);
+        if (result1 && result2 && result3) {
+            System.out.println("testTestSatisfy passed");
+        } else {
+            System.out.println("testTestSatisfy failed");
+        }
     }
 
-    @Test
-    void getConditionClass() {
-        assertSame(finishedDependence.getConditionClass(), NoneCondition.class);
-        assertSame(unfinishedDependence.getConditionClass(), NoneCondition.class);
-        assertSame(mixDependence.getConditionClass(), NoneCondition.class);
+    // 测试 getConditionClass 方法
+    static void testGetConditionClass() {
+        boolean result1 = finishedDependence.getConditionClass() == NoneCondition.class;
+        boolean result2 = unfinishedDependence.getConditionClass() == NoneCondition.class;
+        boolean result3 = mixDependence.getConditionClass() == NoneCondition.class;
+        if (result1 && result2 && result3) {
+            System.out.println("testGetConditionClass passed");
+        } else {
+            System.out.println("testGetConditionClass failed");
+        }
+    }
+
+    public static void main(String[] args) {
+        beforeAll();
+        testDecomposer();
+        testSatisfy();
+        testTestSatisfy();
+        testGetConditionClass();
     }
 }

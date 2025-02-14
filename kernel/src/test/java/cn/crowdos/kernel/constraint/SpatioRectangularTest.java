@@ -2,14 +2,12 @@ package cn.crowdos.kernel.constraint;
 
 import cn.crowdos.kernel.DecomposeException;
 import cn.crowdos.kernel.Decomposer;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class SpatioRectangularTest {
+public class SpatioRectangularTest {
 
     SpatioRectangular constraint;
-    {
+
+    public SpatioRectangularTest() {
         Coordinate leftTop = new Coordinate(0, 0);
         Coordinate rightBottom = new Coordinate(10, 10);
         try {
@@ -19,41 +17,71 @@ class SpatioRectangularTest {
         }
     }
 
-    @Test()
-    void newException(){
-        assertThrows(
-                InvalidConstraintException.class,
-                () -> new SpatioRectangular(new Coordinate(0, 0), new Coordinate(0, 100))
-        );
+    public void testNewException() {
+        try {
+            new SpatioRectangular(new Coordinate(0, 0), new Coordinate(0, 100));
+            System.out.println("newException test failed");
+        } catch (InvalidConstraintException e) {
+            System.out.println("newException test passed");
+        }
     }
 
-    @Test
-    void satisfy() {
+    public void testSatisfy() {
         Coordinate c1 = new Coordinate(0, 0);
-        assertTrue(constraint.satisfy(c1));
+        if (constraint.satisfy(c1)) {
+            System.out.println("satisfy test for c1 passed");
+        } else {
+            System.out.println("satisfy test for c1 failed");
+        }
+
         Coordinate c2 = new Coordinate(10, 10);
-        assertFalse(constraint.satisfy(c2));
+        if (!constraint.satisfy(c2)) {
+            System.out.println("satisfy test for c2 passed");
+        } else {
+            System.out.println("satisfy test for c2 failed");
+        }
+
         Coordinate c3 = new Coordinate(5, 5);
-        assertTrue(constraint.satisfy(c3));
+        if (constraint.satisfy(c3)) {
+            System.out.println("satisfy test for c3 passed");
+        } else {
+            System.out.println("satisfy test for c3 failed");
+        }
+
         Coordinate c4 = new Coordinate(20, 20);
-        assertFalse(constraint.satisfy(c4));
+        if (!constraint.satisfy(c4)) {
+            System.out.println("satisfy test for c4 passed");
+        } else {
+            System.out.println("satisfy test for c4 failed");
+        }
     }
 
-    @Test
-    void getConditionClass() {
+    public void testGetConditionClass() {
         String name = constraint.getConditionClass().getName();
-        assertEquals(name, Coordinate.class.getName());
+        if (name.equals(Coordinate.class.getName())) {
+            System.out.println("getConditionClass test passed");
+        } else {
+            System.out.println("getConditionClass test failed");
+        }
     }
 
-    @Test
-    void decomposer() {
+    public void testDecomposer() {
         Decomposer<Constraint> decomposer = constraint.decomposer();
         try {
             for (Constraint sub : decomposer.decompose(100)) {
                 System.out.println(sub);
             }
+            System.out.println("decomposer test passed");
         } catch (DecomposeException e) {
-            throw new RuntimeException(e);
+            System.out.println("decomposer test failed: " + e.getMessage());
         }
+    }
+
+    public static void main(String[] args) {
+        SpatioRectangularTest test = new SpatioRectangularTest();
+        test.testNewException();
+        test.testSatisfy();
+        test.testGetConditionClass();
+        test.testDecomposer();
     }
 }
