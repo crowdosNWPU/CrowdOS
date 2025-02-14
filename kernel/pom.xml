@@ -22,6 +22,7 @@
             <artifactId>crowdos-aaas</artifactId>
             <version>1.0.3</version>
         </dependency>
+
         <dependency>
             <groupId>cn.crowdos</groupId>
             <artifactId>crowdos-dataservice</artifactId>
